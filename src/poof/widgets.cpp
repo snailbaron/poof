@@ -27,7 +27,26 @@ Button& Button::text(std::string text)
     return *this;
 }
 
-void Button::render(Screen& screen)
+Button& Button::action(std::function<void()> action)
+{
+    _action = std::move(action);
+    return *this;
+}
+
+void Button::onAction()
+{
+    _action();
+}
+
+bool Button::contains(float x, float y) const
+{
+    return x >= _position.x - _width * _position.scale / 2 &&
+        x <= _position.x + _width * _position.scale / 2 &&
+        y >= _position.y - _height * _position.scale / 2 &&
+        y <= _position.y + _height * _position.scale / 2;
+}
+
+void Button::render(Screen& screen) const
 {
     float frameScale = _position.scale;
     Color frameColor {100, 100, 100};
@@ -61,4 +80,13 @@ void Button::render(Screen& screen)
     screen.drawRect(innerRect, bgColor);
 
     screen.drawText(_text, res::FontId::Fyodor, textRect, textColor);
+}
+
+void Button::update(float timeSec)
+{
+    if (_hover) {
+        _position.scale = std::min(1.1f, _position.scale + timeSec * 0.8f);
+    } else {
+        _position.scale = std::max(1.0f, _position.scale - timeSec * 0.8f);
+    }
 }

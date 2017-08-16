@@ -182,11 +182,13 @@ xcopy "$(SolutionDir)..\assets\fonts\fyodor\truetype" "$(OutDir)fonts\fyodor" /E
     <ClCompile Include="main.cpp" />
     <ClCompile Include="resources.cpp" />
     <ClCompile Include="screen.cpp" />
+    <ClCompile Include="timer.cpp" />
     <ClCompile Include="widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resources.hpp" />
     <ClInclude Include="screen.hpp" />
+    <ClInclude Include="timer.hpp" />
     <ClInclude Include="widgets.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
