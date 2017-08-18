@@ -46,7 +46,7 @@ bool Button::contains(float x, float y) const
         y <= _position.y + _height * _position.scale / 2;
 }
 
-void Button::render(Screen& screen) const
+void Button::render() const
 {
     float frameScale = _position.scale;
     Color frameColor {100, 100, 100};
@@ -54,15 +54,15 @@ void Button::render(Screen& screen) const
     Color textColor { 0, 0, 0 };
 
     Rect outerRect(
-        static_cast<int>((_position.x - _width / 2.0f * frameScale) * screen.width()),
-        static_cast<int>((_position.y - _height / 2.0f * frameScale) * screen.height()),
-        static_cast<int>(_width * frameScale * screen.width()),
-        static_cast<int>(_height * frameScale * screen.height()));
+        static_cast<int>((_position.x - _width / 2.0f * frameScale) * screen::width()),
+        static_cast<int>((_position.y - _height / 2.0f * frameScale) * screen::height()),
+        static_cast<int>(_width * frameScale * screen::width()),
+        static_cast<int>(_height * frameScale * screen::height()));
 
-    screen.drawRect(outerRect, frameColor);
+    screen::drawRect(outerRect, frameColor);
 
     int frameWidth = static_cast<int>(
-        std::min(screen.width(), screen.height()) * 0.01f);
+        std::min(screen::width(), screen::height()) * 0.01f);
 
     Rect innerRect(
         outerRect.x() + frameWidth,
@@ -77,9 +77,9 @@ void Button::render(Screen& screen) const
         innerRect.width() - 2 * padding,
         innerRect.height() - 2 * padding);
 
-    screen.drawRect(innerRect, bgColor);
+    screen::drawRect(innerRect, bgColor);
 
-    screen.drawText(_text, res::FontId::Fyodor, textRect, textColor);
+    screen::drawText(_text, res::FontId::Fyodor, textRect, textColor);
 }
 
 void Button::update(float timeSec)

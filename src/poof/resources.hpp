@@ -1,5 +1,6 @@
 #pragma once
 
+#include <SDL.h>
 #include <SDL_ttf.h>
 
 #include <memory>
@@ -25,5 +26,19 @@ private:
 };
 
 Font font(FontId id, int ptSize);
+
+enum TextureId {
+    Ship,
+};
+
+class Texture {
+public:
+    Texture(const std::string& texturePath);
+
+    SDL_Texture* raw() const { return _texture.get(); }
+
+private:
+    std::unique_ptr<SDL_Texture, void(*)(SDL_Texture*)> _texture;
+};
 
 } // namespace res

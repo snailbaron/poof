@@ -179,13 +179,21 @@ xcopy "$(SolutionDir)..\assets\fonts\fyodor\truetype" "$(OutDir)fonts\fyodor" /E
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="battle_field.cpp" />
+    <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="main_menu.cpp" />
     <ClCompile Include="resources.cpp" />
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="timer.cpp" />
     <ClCompile Include="widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="actors.hpp" />
+    <ClInclude Include="battle_field.hpp" />
+    <ClInclude Include="game.hpp" />
+    <ClInclude Include="game_state.hpp" />
+    <ClInclude Include="main_menu.hpp" />
     <ClInclude Include="resources.hpp" />
     <ClInclude Include="screen.hpp" />
     <ClInclude Include="timer.hpp" />

@@ -5,9 +5,16 @@
 #include <algorithm>
 #include <memory>
 
-Screen::Screen()
-    : _window(nullptr)
-    , _renderer(nullptr)
+namespace screen {
+
+namespace {
+
+SDL_Window* _window;
+SDL_Renderer* _renderer;
+
+} // namespace
+
+void create()
 {
     _window = SDL_CreateWindow(
         "poof",
@@ -25,57 +32,45 @@ Screen::Screen()
     assert(_renderer);
 }
 
-Screen::~Screen()
+void destroy()
 {
     SDL_DestroyRenderer(_renderer);
     SDL_DestroyWindow(_window);
 }
 
-Screen::Screen(Screen&& other) noexcept
-    : _window(other._window)
-    , _renderer(other._renderer)
-{ }
-
-Screen& Screen::operator=(Screen&& other) noexcept
-{
-    _window = other._window;
-    _renderer = other._renderer;
-    return *this;
-}
-
-int Screen::width() const
+int width()
 {
     int w;
     SDL_GetWindowSize(_window, &w, nullptr);
     return w;
 }
 
-int Screen::height() const
+int height()
 {
     int h;
     SDL_GetWindowSize(_window, nullptr, &h);
     return h;
 }
 
-void Screen::clear()
+void clear()
 {
     SDL_SetRenderDrawColor(_renderer, 255, 240, 200, 255);
     SDL_RenderClear(_renderer);
 }
 
-void Screen::present()
+void present()
 {
     SDL_RenderPresent(_renderer);
 }
 
-void Screen::drawRect(const Rect& rect, const Color& color)
+void drawRect(const Rect& rect, const Color& color)
 {
     SDL_SetRenderDrawColor(
         _renderer, color.r(), color.g(), color.b(), color.a());
     SDL_RenderFillRect(_renderer, rect.sdlRect());
 }
 
-void Screen::drawText(
+void drawText(
     const std::string& text,
     res::FontId fontId,
     const Rect& rect,
@@ -114,3 +109,10 @@ void Screen::drawText(
     SDL_FreeSurface(surface);
     SDL_DestroyTexture(texture);
 }
+
+SDL_Renderer* renderer()
+{
+    return _renderer;
+}
+
+} // namespace screen

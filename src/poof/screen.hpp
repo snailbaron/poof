@@ -60,34 +60,26 @@ private:
     SDL_Rect _rect;
 };
 
-class Screen {
-public:
-    Screen();
-    ~Screen();
+namespace screen {
 
-    Screen(Screen&& other) noexcept;
-    Screen& operator=(Screen&& other) noexcept;
+void create();
+void destroy();
 
-    Screen(const Screen& other) = delete;
-    Screen& operator=(const Screen& other) = delete;
+int width();
+int height();
 
-    int width() const;
-    int height() const;
+void clear();
+void present();
 
-    void clear();
-    void present();
+void drawRect(const Rect& rect, const Color& color);
 
-    void drawRect(const Rect& rect, const Color& color);
-    void drawText(
-        const std::string& text,
-        res::FontId font,
-        const Rect& rect,
-        const Color& textColor);
+void drawText(
+    const std::string& text,
+    res::FontId font,
+    const Rect& rect,
+    const Color& textColor);
 
-    // TODO: remove the need to use this function
-    SDL_Renderer* renderer() const { return _renderer; }
+// TODO: remove the need to use this function
+SDL_Renderer* renderer();
 
-private:
-    SDL_Window* _window;
-    SDL_Renderer* _renderer;
 };
