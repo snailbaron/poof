@@ -5,7 +5,7 @@
 #include <string>
 #include <functional>
 
-struct ScreenPosition {
+struct WidgetPosition {
     float x = 0.0f;
     float y = 0.0f;
     float scale = 1.0f;
@@ -34,7 +34,7 @@ public:
     void update(float timeSec) override;
 
 private:
-    ScreenPosition _position;
+    WidgetPosition _position;
     float _width;
     float _height;
     std::string _text;

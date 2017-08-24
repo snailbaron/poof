@@ -35,10 +35,16 @@ class Texture {
 public:
     Texture(const std::string& texturePath);
 
+    int width() const { return _width; }
+    int height() const { return _height; }
     SDL_Texture* raw() const { return _texture.get(); }
 
 private:
     std::unique_ptr<SDL_Texture, void(*)(SDL_Texture*)> _texture;
+    int _width;
+    int _height;
 };
+
+const Texture& texture(TextureId textureId);
 
 } // namespace res

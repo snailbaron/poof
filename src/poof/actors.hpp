@@ -2,7 +2,7 @@
 
 #include "resources.hpp"
 
-struct ActorPosition {
+struct WorldPosition {
     float x;
     float y;
 };
@@ -13,7 +13,13 @@ struct Movement {
 };
 
 struct Ship {
-    ActorPosition position;
-    Movement movement;
+    void render() const;
+    void update(float deltaSec);
+
+    WorldPosition position;
     res::TextureId textureId = res::TextureId::Ship;
+    float dx;
+    float dy;
+    float inputX;
+    float inputY;
 };

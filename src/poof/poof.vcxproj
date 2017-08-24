@@ -107,7 +107,8 @@
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)..\3p\bin\windows-$(PlatformTarget)-$(Configuration)" "$(OutDir)" /E /I /Q /Y
 
-xcopy "$(SolutionDir)..\assets\fonts\fyodor\truetype" "$(OutDir)fonts\fyodor" /E /I /Q /Y</Command>
+xcopy "$(SolutionDir)..\assets\fonts\fyodor\truetype" "$(OutDir)fonts\fyodor" /E /I /Q /Y
+xcopy "$(SolutionDir)..\assets\bitmaps" "$(OutDir)\bitmaps" /E /I /Q /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -127,7 +128,8 @@ xcopy "$(SolutionDir)..\assets\fonts\fyodor\truetype" "$(OutDir)fonts\fyodor" /E
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)..\3p\bin\windows-$(PlatformTarget)-$(Configuration)" "$(OutDir)" /E /I /Q /Y
 
-xcopy "$(SolutionDir)..\assets\fonts\fyodor\truetype" "$(OutDir)fonts\fyodor" /E /I /Q /Y</Command>
+xcopy "$(SolutionDir)..\assets\fonts\fyodor\truetype" "$(OutDir)fonts\fyodor" /E /I /Q /Y
+xcopy "$(SolutionDir)..\assets\bitmaps" "$(OutDir)\bitmaps" /E /I /Q /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -151,7 +153,8 @@ xcopy "$(SolutionDir)..\assets\fonts\fyodor\truetype" "$(OutDir)fonts\fyodor" /E
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)..\3p\bin\windows-$(PlatformTarget)-$(Configuration)" "$(OutDir)" /E /I /Q /Y
 
-xcopy "$(SolutionDir)..\assets\fonts\fyodor\truetype" "$(OutDir)fonts\fyodor" /E /I /Q /Y</Command>
+xcopy "$(SolutionDir)..\assets\fonts\fyodor\truetype" "$(OutDir)fonts\fyodor" /E /I /Q /Y
+xcopy "$(SolutionDir)..\assets\bitmaps" "$(OutDir)\bitmaps" /E /I /Q /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -175,10 +178,12 @@ xcopy "$(SolutionDir)..\assets\fonts\fyodor\truetype" "$(OutDir)fonts\fyodor" /E
     <PostBuildEvent>
       <Command>xcopy "$(SolutionDir)..\3p\bin\windows-$(PlatformTarget)-$(Configuration)" "$(OutDir)" /E /I /Q /Y
 
-xcopy "$(SolutionDir)..\assets\fonts\fyodor\truetype" "$(OutDir)fonts\fyodor" /E /I /Q /Y</Command>
+xcopy "$(SolutionDir)..\assets\fonts\fyodor\truetype" "$(OutDir)fonts\fyodor" /E /I /Q /Y
+xcopy "$(SolutionDir)..\assets\bitmaps" "$(OutDir)\bitmaps" /E /I /Q /Y</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="actors.cpp" />
     <ClCompile Include="battle_field.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="main.cpp" />

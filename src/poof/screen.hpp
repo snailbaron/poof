@@ -1,6 +1,7 @@
 #pragma once
 
 #include "resources.hpp"
+#include "actors.hpp"
 
 #include <SDL.h>
 
@@ -33,6 +34,11 @@ public:
 
 private:
     SDL_Color _color;
+};
+
+struct ScreenPosition {
+    int x;
+    int y;
 };
 
 class Rect {
@@ -78,6 +84,8 @@ void drawText(
     res::FontId font,
     const Rect& rect,
     const Color& textColor);
+
+void drawTexture(const res::Texture& texture, const WorldPosition& position);
 
 // TODO: remove the need to use this function
 SDL_Renderer* renderer();

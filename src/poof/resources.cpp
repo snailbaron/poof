@@ -32,7 +32,7 @@ std::map<TextureId, std::string> texturePaths {
     { Ship, "bitmaps/ship.png" },
 };
 
-
+std::map<TextureId, Texture> textureCache;
 
 } // namespace
 
@@ -45,7 +45,11 @@ Font::Font(const std::string& fontPath, int ptSize)
 
 void load()
 {
-    // TODO
+    // Load textures
+    for (const auto& texturePathPair : texturePaths) {
+        textureCache.insert(
+            {texturePathPair.first, Texture(texturePathPair.second)});
+    }
 }
 
 Font font(FontId id, int ptSize)
@@ -65,9 +69,13 @@ Font font(FontId id, int ptSize)
 
 Texture::Texture(const std::string& texturePath)
     : _texture(nullptr, SDL_DestroyTexture)
+    , _width(0)
+    , _height(0)
 {
     SDL_Surface* surface = IMG_Load(texturePath.c_str());
     assert(surface);
+    _width = surface->w;
+    _height = surface->h;
 
     SDL_Texture* texture =
         SDL_CreateTextureFromSurface(screen::renderer(), surface);
@@ -76,6 +84,12 @@ Texture::Texture(const std::string& texturePath)
     _texture.reset(texture);
 
     SDL_FreeSurface(surface);
+}
+
+const Texture& texture(TextureId textureId)
+{
+    assert(textureCache.find(textureId) != textureCache.end());
+    return textureCache.at(textureId);
 }
 
 } // namespace res

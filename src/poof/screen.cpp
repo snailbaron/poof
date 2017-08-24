@@ -12,6 +12,14 @@ namespace {
 SDL_Window* _window;
 SDL_Renderer* _renderer;
 
+ScreenPosition worldToScreen(const WorldPosition& worldPosition)
+{
+    ScreenPosition screenPosition;
+    screenPosition.x = static_cast<int>(worldPosition.x + 0.5f);
+    screenPosition.y = static_cast<int>(worldPosition.y + 0.5f);
+    return screenPosition;
+}
+
 } // namespace
 
 void create()
@@ -108,6 +116,17 @@ void drawText(
 
     SDL_FreeSurface(surface);
     SDL_DestroyTexture(texture);
+}
+
+void drawTexture(const res::Texture& texture, const WorldPosition& position)
+{
+    ScreenPosition screenPosition = worldToScreen(position);
+    SDL_Rect dst {
+        screenPosition.x - texture.width() / 2,
+        screenPosition.y - texture.height() / 2,
+        texture.width(),
+        texture.height()};
+    SDL_RenderCopy(_renderer, texture.raw(), nullptr, &dst);
 }
 
 SDL_Renderer* renderer()

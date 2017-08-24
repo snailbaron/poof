@@ -15,6 +15,8 @@ int main(int argc, char* argv[])
     TTF_Init();
 
     screen::create();
+    res::load();
+
     game::create();
 
     FrameTimer timer(60);
