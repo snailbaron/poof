@@ -191,6 +191,7 @@ xcopy "$(SolutionDir)..\assets\bitmaps" "$(OutDir)\bitmaps" /E /I /Q /Y</Command
     <ClCompile Include="resources.cpp" />
     <ClCompile Include="screen.cpp" />
     <ClCompile Include="timer.cpp" />
+    <ClCompile Include="joke\units.cpp" />
     <ClCompile Include="widgets.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -202,6 +203,9 @@ xcopy "$(SolutionDir)..\assets\bitmaps" "$(OutDir)\bitmaps" /E /I /Q /Y</Command
     <ClInclude Include="resources.hpp" />
     <ClInclude Include="screen.hpp" />
     <ClInclude Include="timer.hpp" />
+    <ClInclude Include="joke\type_tools.hpp" />
+    <ClInclude Include="joke\units.hpp" />
+    <ClInclude Include="vectors.hpp" />
     <ClInclude Include="widgets.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

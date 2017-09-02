@@ -1,25 +1,34 @@
 #pragma once
 
 #include "resources.hpp"
-
-struct WorldPosition {
-    float x;
-    float y;
-};
+#include "vectors.hpp"
 
 struct Movement {
     float dx;
     float dy;
 };
 
+struct Bullet {
+    Bullet(Vector<float> position, Vector<float> velocity)
+        : position(position)
+        , velocity(velocity)
+    { }
+
+    void render() const;
+    void update(float deltaSec);
+
+    Vector<float> position;
+    Vector<float> velocity;
+};
+
 struct Ship {
     void render() const;
     void update(float deltaSec);
 
-    WorldPosition position;
+    void fire();
+
+    Vector<float> positionMeters;
     res::TextureId textureId = res::TextureId::Ship;
-    float dx;
-    float dy;
-    float inputX;
-    float inputY;
+    Vector<float> velocityMs;
+    Vector<float> input;
 };

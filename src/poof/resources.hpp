@@ -29,6 +29,7 @@ Font font(FontId id, int ptSize);
 
 enum TextureId {
     Ship,
+    Bullet,
 };
 
 class Texture {

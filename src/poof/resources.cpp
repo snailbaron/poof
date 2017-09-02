@@ -30,6 +30,7 @@ std::map<FontAndSize, Font> fontCache;
 
 std::map<TextureId, std::string> texturePaths {
     { Ship, "bitmaps/ship.png" },
+    { Bullet, "bitmaps/bullet.png" },
 };
 
 std::map<TextureId, Texture> textureCache;

@@ -42,6 +42,9 @@
     <ClCompile Include="actors.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="joke\units.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="screen.hpp">
@@ -69,6 +72,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="game.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="joke\units.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vectors.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="joke\type_tools.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

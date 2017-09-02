@@ -85,7 +85,7 @@ void drawText(
     const Rect& rect,
     const Color& textColor);
 
-void drawTexture(const res::Texture& texture, const WorldPosition& position);
+void drawTexture(const res::Texture& texture, const ScreenPosition& position);
 
 // TODO: remove the need to use this function
 SDL_Renderer* renderer();
