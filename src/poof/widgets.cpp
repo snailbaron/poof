@@ -1,7 +1,7 @@
 #include "widgets.hpp"
 #include "resources.hpp"
 
-#include <SDL_ttf.h>
+#include "sdl_libs.hpp"
 
 #include <utility>
 #include <algorithm>

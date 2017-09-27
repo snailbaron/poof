@@ -1,6 +1,6 @@
 #pragma once
 
-#include <SDL.h>
+#include "sdl_libs.hpp"
 
 class GameState {
 public:

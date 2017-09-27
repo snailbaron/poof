@@ -2,9 +2,7 @@
 #include "timer.hpp"
 #include "game.hpp"
 
-#include <SDL.h>
-#include <SDL_image.h>
-#include <SDL_ttf.h>
+#include "sdl_libs.hpp"
 
 #include <vector>
 

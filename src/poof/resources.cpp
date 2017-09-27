@@ -1,11 +1,10 @@
 #include "resources.hpp"
 #include "screen.hpp"
 
-#include <SDL_image.h>
-
 #include <map>
 #include <cassert>
 #include <tuple>
+#include <utility>
 
 namespace res {
 
@@ -48,8 +47,9 @@ void load()
 {
     // Load textures
     for (const auto& texturePathPair : texturePaths) {
-        textureCache.insert(
-            {texturePathPair.first, Texture(texturePathPair.second)});
+        auto pair = std::make_pair(
+            texturePathPair.first, Texture(texturePathPair.second));
+        textureCache.insert(std::move(pair));
     }
 }
 

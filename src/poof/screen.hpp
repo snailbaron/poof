@@ -3,7 +3,7 @@
 #include "resources.hpp"
 #include "actors.hpp"
 
-#include <SDL.h>
+#include "sdl_libs.hpp"
 
 #include <cstdint>
 #include <string>

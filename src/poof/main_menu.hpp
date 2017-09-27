@@ -4,7 +4,7 @@
 #include "screen.hpp"
 #include "game_state.hpp"
 
-#include <SDL.h>
+#include "sdl_libs.hpp"
 
 #include <vector>
 
